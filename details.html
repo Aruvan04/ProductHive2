@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Details</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+<h1>ProductHive</h1>
+
+<nav>
+<a href="index.html">Home</a> |
+<a href="products.html">Products</a> |
+<a href="star-rated.html">Star Rated</a>
+</nav>
+</header>
+
+<hr>
+
+<h2>Product Details</h2>
+
+<div id="productDetails"></div>
+
+<script>
+
+const products = [
+{ id:1, name:"iPhone 14", category:"Mobile", price:"$900"},
+{ id:2, name:"Samsung Galaxy S23", category:"Mobile", price:"$850"},
+{ id:3, name:"Dell Laptop", category:"Laptop", price:"$1200"},
+{ id:4, name:"Boat Headphones", category:"Accessories", price:"$100"}
+];
+
+const params = new URLSearchParams(window.location.search);
+const id = Number(params.get("id"));
+
+const product = products.find(p => p.id === id);
+
+if(product){
+document.getElementById("productDetails").innerHTML =
+"<h3>"+product.name+"</h3>" +
+"<p>Category: "+product.category+"</p>" +
+"<p>Price: "+product.price+"</p>";
+}
+
+</script>
+
+<hr>
+
+<footer>
+<p>© 2026 ProductHive. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
